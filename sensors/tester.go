@@ -9,7 +9,7 @@ import ( //our Go packages for this project
 )
 
 // where our program begins
-func main() {
+func PullData() {
 	//connect to the database
 	var (
 		server   = "oxypocserver"
@@ -47,7 +47,5 @@ func main() {
 		}
 		fmt.Println(id, processdatetime)
 	}
-
-	PrintHello()
 
 }
