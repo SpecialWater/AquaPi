@@ -4,3 +4,5 @@ Go/github.com
 *.exe
 *.list
 *.gpg
+.env
+/config
