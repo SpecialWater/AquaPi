@@ -1,8 +1,9 @@
-FROM arm32v7/golang:1.15-buster
+FROM arm32v7/golang:buster
+
+RUN apt-get update -y
 
 WORKDIR /app/sensors
 
-# We want to populate the module cache based on the go.{mod,sum} files.
 COPY go.mod .
 COPY go.sum .
 
@@ -10,7 +11,6 @@ RUN go mod download
 
 COPY . .
 
-# Build the Go app
-RUN go build -o ./out/sensors .
+RUN go build .
 
-CMD ["./out/sensors"]
+CMD ["./sensors"]
