@@ -13,7 +13,7 @@ func Blink(pin rpio.Pin) {
 	// Toggle pin 20 times
 	for {
 		pin.Toggle()
-		fmt.Println("sleep")
+		fmt.Println("hello")
 		time.Sleep(time.Second / 5)
 	}
 }
