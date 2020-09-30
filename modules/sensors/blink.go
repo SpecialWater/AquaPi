@@ -8,12 +8,20 @@ import ( //our Go packages for this project
 	"github.com/stianeikeland/go-rpio/v4"
 )
 
-func Blink(pin rpio.Pin) {
+func BlinkBlue(pin rpio.Pin) {
 	
-	// Toggle pin 20 times
-	for {
+	for i := 0; i < 4; i++ {
 		pin.Toggle()
-		fmt.Println("hello")
+		fmt.Println("Blue Blink")
+		time.Sleep(time.Second / 5)
+	}
+}
+
+func BlinkRed(pin rpio.Pin) {
+	
+	for i := 0; i < 4; i++  {
+		pin.Toggle()
+		fmt.Println("Red Blink")
 		time.Sleep(time.Second / 5)
 	}
 }
