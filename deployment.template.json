@@ -50,6 +50,13 @@
                           "HostPort": "443"
                         }
                       ]
+                    },
+                    "LogConfig": {
+                      "Type": "json-file",
+                      "Config": {
+                          "max-size": "10m",
+                          "max-file": "3"
+                      }
                     }
                   }
                 }
@@ -58,7 +65,7 @@
           },
           "modules": {
             "Sensors": {
-              "version": "1.001",
+              "version": "1.025",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",
@@ -66,7 +73,24 @@
                 "image": "iotstuff.azurecr.io/sensors:latest",
                 "createOptions": {
                   "HostConfig":{
-                    "Privileged":true
+                    "Devices": [
+                      {
+                        "PathOnHost": "/dev/mem",
+                        "PathInContainer": "/dev/mem",
+                        "CgroupPermissions": "rwm"
+                      },
+                      {
+                        "PathOnHost": "/dev/gpiomem",
+                        "PathInContainer": "/dev/gpiomem",
+                        "CgroupPermissions": "rwm"
+                      }],
+                    "LogConfig": {
+                      "Type": "json-file",
+                      "Config": {
+                          "max-size": "10m",
+                          "max-file": "3"
+                      }
+                    }
                   }
                 }
               }
