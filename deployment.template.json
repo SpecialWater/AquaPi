@@ -65,7 +65,7 @@
           },
           "modules": {
             "Sensors": {
-              "version": "1.025",
+              "version": "1.029",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",
